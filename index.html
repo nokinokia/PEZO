@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Nyeleneh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fffcf9;
+            overflow-x: hidden;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar Styles */
+        .nyeleneh-navbar {
+            background-color: #00ffcc;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nyeleneh-navbar ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .nyeleneh-navbar ul li {
+            margin: 0 30px;
+            position: relative;
+        }
+
+        .nyeleneh-navbar ul li a {
+            text-decoration: none;
+            color: #ff007f;
+            font-size: 1.5em;
+            font-family: 'Pacifico', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s ease;
+        }
+
+        .nyeleneh-navbar ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #ff007f;
+            transition: width 0.3s ease, left 0.3s ease;
+            left: 50%;
+        }
+
+        .nyeleneh-navbar ul li a:hover {
+            color: #00ffcc;
+        }
+
+        .nyeleneh-navbar ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?funny,cat') no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 3s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 4.5em;
+            text-transform: uppercase;
+            animation: shake 1s ease infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(5deg);
+            }
+            50% {
+                transform: rotate(-5deg);
+            }
+            75% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-top: 20px;
+            animation: fadeInUp 2s ease-out;
+            animation-delay: 0.5s;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #ff007f;
+            padding: 80px 20px;
+            text-align: center;
+            clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 90%);
+            position: relative;
+            margin-top: -30px;
+        }
+
+        .about h2 {
+            font-size: 3em;
+            color: white;
+            font-family: 'Pacifico', cursive;
+            letter-spacing: 3px;
+        }
+
+        .about p {
+            font-size: 1.3em;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .about .funny {
+            background-color: #ffcc00;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 30px;
+            animation: bounce 1s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Gallery Section */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 60px 20px;
+            gap: 20px;
+            background-color: #ffea00;
+            clip-path: ellipse(70% 60% at 50% 50%);
+        }
+
+        .gallery-item {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Social Section */
+        .social-section {
+            background-color: #ff007f;
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .social-icons a {
+            margin: 0 20px;
+        }
+
+        .social-icons img {
+            width: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="nyeleneh-navbar">
+        <ul>
+            <li><a href="#home">🔥Home</a></li>
+            <li><a href="#about">🎭About</a></li>
+            <li><a href="#tokenomics">💰Tokenomics</a></li>
+            <li><a href="#roadmap">🗺️Roadmap</a></li>
+            <li><a href="#meme">🤪Meme</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="crazy-title">Meme Web Nyeleneh😂</h1>
+            <h2>Welcome to the Most Absurd Web</h2>
+            <p>Experience memes like never before!</p>
+        </div>
+    </header>
+    
+    <!-- About Section -->
+    <div class="about" id="about">
+        <h2>About Us</h2>
+        <p>Welcome to Meme Web Nyeleneh, the most absurd and fun place to explore memes and creative web design!</p>
+        <p>Here, we believe in chaos with style, offering you a blend of quirky memes and delightful designs.</p>
+        <div class="funny">
+            <p>CA: XXXXXXXXXXXXXXXXXXXX</p>
+            <button id="copy-button" onclick="copyText()">Salin Teks</button>
+        </div>
+    </div>
+    <center>
+    <!-- Tokenomics Section -->
+    <div class="tokenomics" id="tokenomics">
+        <h2>Tokenomics</h2>
+        <p>Token Name = $JUCE</p>
+        <p>TICKER = $JUCE</p>
+        <p>TOTAL SUPPLY = 1,000,000,000</p>
+        <p>LIQUIDITY POOL BURNED = 100%</p>
+    </div>
+    
+    <!-- Roadmap Section -->
+    <div class="roadmap" id="roadmap">
+        <h2>Roadmap</h2>
+        <ul>
+            <li>Phase 1: Meme Creation</li>
+            <li>Phase 2: Marketing Campaign</li>
+            <li>Phase 3: Community Building</li>
+            <li>Phase 4: Expansion to Social Media</li>
+        </ul>
+    </div>
+</center>
+    <!-- Meme Gallery Section -->
+    <div class="gallery" id="meme">
+        <h2 class="crazy-title">The Craziest Memes on the Web!</h2>
+        <div class="gallery-item">
+            <img src="https://img.freepik.com/free-photo/funny-face-kitty-looking-smiling-camera_1450-248.jpg" alt="Meme 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://img.freepik.com/free-photo/funny-face-kitty-looking-smiling-camera_1450-248.jpg" alt="Meme 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://img.freepik.com/free-photo/funny-face-kitty-looking-smiling-camera_1450-248.jpg" alt="Meme 3">
+        </div>
+    </div>
+    
+    <!-- Social Section -->
+    <div class="social-section">
+        <h2>Connect With Us</h2>
+        <div class="social-icons">
+            <a href="#"><img src="https://www.freepnglogos.com/uploads/twitter-x-logo-png/twitter-x-logo-png-9.png" width="50px"></a>
+            <a href="#"><img src="https://logodownload.org/wp-content/uploads/2017/11/telegram-logo-8.png" width="50px"></a>
+            <a href="#"><img src="https://static.vecteezy.com/system/resources/previews/021/819/342/non_2x/fun-green-pill-free-png.png" width="50px"></a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Meme Web Nyeleneh. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function copyText() {
+            var copyText = document.getElementById("copy-text");
+            var range = document.createRange();
+            range.selectNode(copyText);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand("copy");
+            alert("Text has been copied to clipboard!");
+        }
+    </script>
+</body>
+</html>
